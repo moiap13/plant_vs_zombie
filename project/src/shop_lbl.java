@@ -1,5 +1,3 @@
-package view;
-
 import javax.imageio.ImageIO;
 import javax.naming.ldap.Control;
 import javax.swing.*;

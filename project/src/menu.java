@@ -1,5 +1,3 @@
-import view.shop_lbl;
-
 import java.awt.*;
 
 import javax.swing.*;
@@ -17,9 +15,7 @@ public class menu extends JPanel {
     public menu(){
         this.setPreferredSize(new Dimension(BAR_WIDTH, BAR_HEIGHT));
 
-
-        this.add(new info_lbl("Score"));
-        this.add(new shop_lbl("./images/SunflowerSeed.png","./images/sunflower.png"));
+        this.add(new shop_lbl("./images/SunflowerSeed.png","./images/sunflower.gif"));
         this.add(new info_lbl("Money"));
 	/*
 		plant1 = new JLabel("plant_1");
@@ -30,7 +26,8 @@ public class menu extends JPanel {
 		plant3.setPreferredSize(new Dimension(this.BAR_WIDTH/6,BAR_HEIGHT));
 		this.add(plant1);
 		this.add(plant2);BorderLayout
-		this.add(plant3);*/
+		this.add(plant3);
+	*/
 
 
 
