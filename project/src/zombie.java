@@ -1,7 +1,6 @@
 public class zombie {
 
     // Constructors
-
     public zombie(int pv, int speed, position pos)
     {
         life_point = pv;
@@ -16,12 +15,10 @@ public class zombie {
         this.pos = new position(pos_x, pos_y);
     }
 
-
     public void walk()
     {
         pos.setX( pos.getX() - speed);
     }
-
 
     //Getter and setter
     public int getLife_point() {
@@ -47,8 +44,6 @@ public class zombie {
     public void setPos(position pos) {
         this.pos = pos;
     }
-
-
 
     private int life_point;
     private int speed;

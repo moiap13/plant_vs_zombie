@@ -17,6 +17,7 @@ public class shop_lbl extends JLabel implements MouseListener,MouseMotionListene
     private static final int DEFAULT_IMAGE_WIDTH = 105;
     public static final int DEFAULT_IMAGE_HEIGHT = 67;
     Cursor custom_cursor;
+    private String img_path;
 
 
     public shop_lbl(String background_img_path, String cursor_img_path) {
@@ -25,12 +26,23 @@ public class shop_lbl extends JLabel implements MouseListener,MouseMotionListene
         this.setCursor(Cursor.getDefaultCursor());
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
-        this.custom_cursor=Cursor.getDefaultCursor();
-        this.custom_cursor=Toolkit.getDefaultToolkit().createCustomCursor(
-                new ImageIcon(cursor_img_path).getImage(),
-                new Point(0,0),
-                "custom cursor");
+        //this.custom_cursor=Cursor.getDefaultCursor();
+        //this.custom_cursor=Toolkit.getDefaultToolkit().createCustomCursor(
+                //new ImageIcon(cursor_img_path).getImage(),
+                //new Point(0,0),
+                //"custom cursor");
+
+        this.setTransferHandler(new MyTransferHandler());
+
+        this.img_path = cursor_img_path;
     }
+
+
+    public String getImg_path()
+    {
+        return img_path;
+    }
+
     @Override
     public void mouseDragged(MouseEvent e) {}
     @Override
@@ -48,8 +60,12 @@ public class shop_lbl extends JLabel implements MouseListener,MouseMotionListene
     @Override
     public void mousePressed(MouseEvent e) {
 
-        this.setCursor(custom_cursor);
         System.out.println("pressed");
+        JComponent lab = (JComponent)e.getSource();
+
+        TransferHandler handle = lab.getTransferHandler();
+
+        handle.exportAsDrag(lab, e, TransferHandler.COPY);
 
     }
 

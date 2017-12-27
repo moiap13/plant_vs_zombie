@@ -1,7 +1,5 @@
-
 import javax.swing.*;
 import java.awt.*;
-
 
 public class info_lbl extends JLabel {
     private static final String FONT_STYLE="arial";

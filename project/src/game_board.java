@@ -6,7 +6,7 @@ import java.io.IOException;
 import javax.swing.*;
 import javax.imageio.ImageIO;
 
-public class game_board extends JPanel {
+public class game_board extends JEditorPane {
     Image background;
     Image test;
     JLabel lbl;
@@ -20,6 +20,8 @@ public class game_board extends JPanel {
         }
 
         this.setPreferredSize(new Dimension());
+
+        this.setDragEnabled(true);
     }
 
     @Override
