@@ -1,7 +1,12 @@
-public class zombie {
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.ImageObserver;
+
+public class zombie extends drawable{
 
     // Constructors
-    public zombie(int pv, int speed, position pos)
+    public zombie() {}
+    /*public zombie(int pv, int speed, position pos)
     {
         life_point = pv;
         this.speed = speed;
@@ -14,13 +19,30 @@ public class zombie {
         this.speed = speed;
         this.pos = new position(pos_x, pos_y);
     }
+    */
+    public zombie(zombie z)
+    {
+        this.life_point = z.life_point;
+        this.speed = z.speed;
+        this.pos = z.pos;
+        this.hit_box = z.hit_box;
+        this.img_path = z.img_path;
+        create_image();
+    }
 
     public void walk()
     {
-        pos.setX( pos.getX() - speed);
+        if(can_walk)
+            pos.setX( pos.getX() - speed);
+        else
+            System.out.println("YEAH!!");
     }
 
-    //Getter and setter
+    public void test()
+    {
+        this.hit_box.setBounds(this.pos.getX(), this.pos.getY(), 120, 160);
+    }
+
     public int getLife_point() {
         return life_point;
     }
@@ -32,6 +54,8 @@ public class zombie {
     public position getPos() {
         return pos;
     }
+
+    public String getImg_path() { return this.img_path; }
 
     public void setLife_point(int life_point) {
         this.life_point = life_point;
@@ -45,7 +69,13 @@ public class zombie {
         this.pos = pos;
     }
 
-    private int life_point;
-    private int speed;
-    private position pos;
+    public void setImg_path(String img_path) {
+        this.img_path = img_path;
+    }
+
+    public int life_point;
+    protected int speed;
+    public Rectangle hit_box;
+    public boolean can_walk = true;
+    public static final int DAMMAGE = 1;
 }

@@ -15,8 +15,11 @@ public class menu extends JPanel {
     public menu(){
         this.setPreferredSize(new Dimension(BAR_WIDTH, BAR_HEIGHT));
 
-        this.add(new shop_lbl("./images/SunflowerSeed.png","./images/sunflower.gif"));
-        this.add(new info_lbl("Money"));
+        this.add(new shop_lbl(0));
+        this.add(new shop_lbl(1));
+        this.add(new shop_lbl(2));
+        this.add(new shop_lbl(3));
+        this.add(new info_lbl("SUN"));
 	/*
 		plant1 = new JLabel("plant_1");
 		plant1.setPreferredSize(new Dimension(this.BAR_WIDTH/6,BAR_HEIGHT));

@@ -25,25 +25,29 @@ public class MyTransferHandler extends TransferHandler{
         //if(!canImport(support))
         //    return false;
 
-        System.out.println("je suis la");
         Transferable data = support.getTransferable();
 
         String str = "";
-        //shop_lbl str;
 
         try {
             str = (String)data.getTransferData(DataFlavor.stringFlavor);
+            int ind = Integer.parseInt(str);
+
+            Point p = support.getDropLocation().getDropPoint();
+            game.drag_x = ((int)p.getX()-(int)game.INITIAL_POS.getX())/game.DEFAULT_SIZE[0];
+            game.drag_y = ((int)p.getY()-(int)game.INITIAL_POS.getY())/game.DEFAULT_SIZE[1];
+            main.jeu.add_plant(ind);
         } catch (UnsupportedFlavorException e){
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        game_board lab = (game_board)support.getComponent();
+
 
         //shop_lbl lab = (shop_lbl)support.getComponent();
-        System.out.println("STR : " + str);
-        lab.getGraphics().drawImage(Toolkit.getDefaultToolkit().createImage(str),200, 200, null);
+
+
 
         return false;
     }
@@ -56,8 +60,7 @@ public class MyTransferHandler extends TransferHandler{
         //On retourne un nouvel objet implémentant l'interface Transferable
         //StringSelection implémente cette interface,  nous l'utilisons donc
 
-        System.out.println(((shop_lbl)c).getImg_path());
-        return new StringSelection(((shop_lbl)c).getImg_path());
+        return new StringSelection(((shop_lbl)c).getIndStr());
     }
 
     public int getSourceActions(JComponent c) {
